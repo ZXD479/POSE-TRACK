@@ -41,15 +41,65 @@
 
 本部分介绍如何在 **SportsMOT 数据集** 上复现项目的结果。
 
-## 📂 1. Data Preparation for Reproduction on SportsMOT Dataset
+## Data Preparation for Reproduction on SportsMOT Dataset
 
 为了在 SportsMOT 数据集上复现结果，你需要下载检测（detection）和嵌入（embedding）文件，并将其放置到相应的文件夹中。
 
 ### 下载数据
 
 请从以下链接下载检测和嵌入文件：
-- [Google Drive 链接](https://drive.google.com/your-link-here )
+- [Google Drive 链接](https://drive.google.com/drive/folders/14gh9e5nQhqHsw77EfxZaUyn9NgPP0-Tq?usp=sharing)
+- pose_embedding的位置在/home/zxd/project/Deep-EIoU-main/Deep-EIoU/pose_embedding
 
 ### 文件结构
 
 将下载的文件按照以下目录结构放置：
+
+```
+{pose-track Root}
+   |——————pose-track
+   └——————detection
+   |        └——————v_-9kabh1K8UA_c008.npy
+   |        └——————v_-9kabh1K8UA_c009.npy
+   |        └——————...
+   └——————embedding
+            └——————v_-9kabh1K8UA_c008.npy
+            └——————v_-9kabh1K8UA_c009.npy
+            └——————...
+   └——————pose_embedding
+            └——————v_-9kabh1K8UA_c008.npy
+            └——————v_-9kabh1K8UA_c009.npy
+            └——————...
+
+```
+
+### 2. Run tracking on SportsMOT dataset
+Run the following commands, you should see the tracking result for each sequences in the interpolation folder.
+Please directly zip the tracking results and submit to the [SportsMOT evaluation server](https://codalab.lisn.upsaclay.fr/competitions/12424#participate).
+
+```
+python tools/sport_track_pose.py --root_path <pose-track Root>
+```
+
+## Demo on custom dataset
+
+### 1. Model preparation for demo on custom dataset
+To demo on your custom dataset, download the detector and ReID model from [drive](https://drive.google.com/drive/folders/1wItcb0yeGaxOS08_G9yRWBTnpVf0vZ2w) and put them in the corresponding folder.
+
+```
+{pose-track Root}
+   └——————pose-track
+            └——————checkpoints
+                └——————best_ckpt.pth.tar (YOLOX Detector)
+                └——————sports_model.pth.tar-60 (OSNet ReID Model)
+```
+
+### 2. Demo on custom dataset
+Demo on our provided video
+```
+python tools/demo.py
+```
+Demo on your custom video
+```
+python tools/demo.py --path <your video path>
+```

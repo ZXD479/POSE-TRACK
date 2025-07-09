@@ -94,12 +94,4 @@ To demo on your custom dataset, download the detector and ReID model from [drive
                 └——————sports_model.pth.tar-60 (OSNet ReID Model)
 ```
 
-### 2. Demo on custom dataset
-Demo on our provided video
-```
-python tools/demo.py
-```
-Demo on your custom video
-```
-python tools/demo.py --path <your video path>
-```
+

@@ -73,6 +73,18 @@
             └——————...
 
 ```
+## Weights
+
+### 1. Model preparation 
+Download the detector and ReID model from [drive](https://drive.google.com/drive/folders/1wItcb0yeGaxOS08_G9yRWBTnpVf0vZ2w) and put them in the corresponding folder.
+
+```
+{pose-track Root}
+   └——————pose-track
+            └——————checkpoints
+                └——————best_ckpt.pth.tar (YOLOX Detector)
+                └——————sports_model.pth.tar-60 (OSNet ReID Model)
+```
 
 ### 2. Run tracking on SportsMOT dataset
 Run the following commands, you should see the tracking result for each sequences in the interpolation folder.
@@ -82,17 +94,5 @@ Please directly zip the tracking results and submit to the [SportsMOT evaluation
 python tools/sport_track_pose.py --root_path <pose-track Root>
 ```
 
-## Demo on custom dataset
-
-### 1. Model preparation for demo on custom dataset
-To demo on your custom dataset, download the detector and ReID model from [drive](https://drive.google.com/drive/folders/1wItcb0yeGaxOS08_G9yRWBTnpVf0vZ2w) and put them in the corresponding folder.
-
-```
-{pose-track Root}
-   └——————pose-track
-            └——————checkpoints
-                └——————best_ckpt.pth.tar (YOLOX Detector)
-                └——————sports_model.pth.tar-60 (OSNet ReID Model)
-```
 
 

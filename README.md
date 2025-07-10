@@ -86,7 +86,7 @@ Please directly zip the tracking results and submit to the [SportsMOT evaluation
 python tools/soccer_track_pose.py 
 ```
 
-跑出来的结果文件会在以下目录放置：
+The result file that runs out will be placed in the following directory:
 
 ```
 
@@ -98,7 +98,8 @@ python tools/soccer_track_pose.py
                                    └——————soccer-val
 
 ```
-执行以下命令获取结果
+
+Execute the following command to obtain the soccerNET result
 
 ```
 python TrackEval/scripts/run_mot_challenge.py
